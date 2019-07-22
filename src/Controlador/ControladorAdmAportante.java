@@ -6,6 +6,10 @@
 package Controlador;
 
 import Vista.AdministradorAportante;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 /**
  *
@@ -16,6 +20,7 @@ public class ControladorAdmAportante {
 
     ControladorAdmAportante() {
         this.vista=new AdministradorAportante();
+        this.vista.getMenuItem1().setOnAction(new Evento());
     }
 
     public AdministradorAportante getVista() {
@@ -26,7 +31,22 @@ public class ControladorAdmAportante {
         this.vista = vista;
     }
 
-    
+    private class Evento 
+      implements EventHandler<ActionEvent>{
+       @Override
+        public void handle(ActionEvent event) {
+           Singleton singleton=
+                   Singleton.getSingleton();
+           Stage stage = singleton.getStage();
+           Controlador1 controlador = new 
+                Controlador1();
+           Scene escena =
+                   controlador.getVista().getScene();
+           stage.setTitle("Escena 1");
+           stage.setScene(escena);
+        }
+        
+    }
     
     
 }

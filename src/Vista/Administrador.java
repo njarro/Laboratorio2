@@ -32,7 +32,7 @@ public class Administrador implements Vista {
         this.menuItem2 = new
         MenuItem("Gestion aportantes");
         this.menuItem3 = new
-        MenuItem("Meu principal");
+        MenuItem("Menu principal");
         menu.getItems().add(menuItem1);
         menu.getItems().add(menuItem2);
         menu.getItems().add(menuItem3);

@@ -6,10 +6,12 @@
 package Vista;
 
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.text.Font;
 
 /**
  *
@@ -17,27 +19,29 @@ import javafx.scene.layout.BorderPane;
  */
 public class AdministradorAportante implements Vista {
 private Scene escena;
-private  MenuItem menuItem2;
-    private MenuItem menuItem1;
-    private MenuItem menuItem3;
+private MenuItem menuItem1;
 
     public AdministradorAportante() {
         BorderPane Pane = new BorderPane();
-        //Menu
-        Menu menu = new Menu("Promotor");
+        Label l=new Label("Proximamente");
+        l.setFont(new Font("Arial", 70));
+        Pane.setCenter(l);
+        Menu menu = new Menu("Opciones");
         this.menuItem1 = new
-        MenuItem("Gestion promotores");
-        this.menuItem2 = new
-        MenuItem("Gestion aportantes");
-        this.menuItem3 = new
-        MenuItem("Meu principal");
-        menu.getItems().add(menuItem1);
-        menu.getItems().add(menuItem2);
-        menu.getItems().add(menuItem3);
+        MenuItem("Menu principal");
         MenuBar menuBar = new MenuBar();
+        menu.getItems().add(menuItem1);
         menuBar.getMenus().add(menu);
         Pane.setTop(menuBar);
         this.escena = new Scene(Pane, 1000, 650);
+    }
+
+    public MenuItem getMenuItem1() {
+        return menuItem1;
+    }
+
+    public void setMenuItem1(MenuItem menuItem1) {
+        this.menuItem1 = menuItem1;
     }
 
 
