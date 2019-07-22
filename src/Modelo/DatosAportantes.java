@@ -33,7 +33,7 @@ public class DatosAportantes {
     }
     public void imprimir() throws IOException{
         File archivoSalida=new File("Aportantes.txt");
-        if(archivoSalida.exists()){
+        
             Scanner input =new Scanner(archivoSalida);
             while(input.hasNext()){
                 String nombre=input.next();
@@ -50,7 +50,9 @@ public class DatosAportantes {
                     salida.println(item.getNombre());
                     salida.println(item.getApellido());
                     salida.println(item.getNumerot());
+                    
                 }
-        }
+                salida.flush();
+                salida.close();
     }
 }

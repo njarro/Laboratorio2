@@ -5,6 +5,10 @@
  */
 package Modelo;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.util.Scanner;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -26,5 +30,30 @@ public class AdminitradorDatos {
           administradorDatos = new AdminitradorDatos();
       return administradorDatos;
     }
-    
+    public void imprimir() throws IOException{
+        File archivoSalida=new File("Promotores.txt");
+        if(archivoSalida.exists()){
+            Scanner input =new Scanner(archivoSalida);
+            while(input.hasNext()){
+                String nombre=input.next();
+                String apellido=input.next();
+                String dinero=input.next();
+                String tipo=input.next();
+                Promotor pr =new Promotor(nombre,apellido,dinero,tipo);
+                data.add(pr);
+            }
+        archivoSalida.delete();
+                //Salida
+                PrintStream salida=null;
+                salida=new PrintStream(archivoSalida);
+                for(Promotor item:data){
+                    salida.println(item.getNombre());
+                    salida.println(item.getApellido());
+                    salida.println(item.getDinero());
+                    salida.println(item.getTipo());
+                }
+                salida.flush();
+                salida.close();
+        }
+    }
 }
